@@ -44,6 +44,19 @@ import { componentPageNumber } from '../routes/state.svelte.js';
 			</p>
 
 			<Youtube id="9MbjQJMwQsQ" altThumb={true} />
+			<details class="-mt-5 select-none">
+				<summary>How did I embed this video?</summary>
+				With
+				<a
+					class="mb-10"
+					href="https://embed.sveltethemes.dev/?ref=madewithsvelte.com"
+					target="_blank"
+					><span class="text-blue-500 underline"
+						>svelte-youtube-embed. I can't find a way to set it to a time in the video, just from
+						the beginning.</span
+					></a
+				>
+			</details>
 			<p>
 				What I learned is that I need to instantiate the new class from the state.svelte.js
 				component itself, instead of setting a new ComponentPageNumber() class on each load.
@@ -57,10 +70,10 @@ import { componentPageNumber } from '../routes/state.svelte.js';
 </svelte:head>
 <HighlightSvelte language={javascript} {code} />
 
-<details class="absolute mt-4">
+<details class="mt-1 select-none">
 	<summary>How did I create this code snippet (aka "code highlighting")?</summary>
 	With
-	<a class="mb-10" href="https://www.npmjs.com/package/svelte-highlight"
+	<a class="mb-10" href="https://www.npmjs.com/package/svelte-highlight" target="_blank"
 		><span class="text-blue-500 underline">svelte-highlight, and the 'agate' styling package.</span
 		></a
 	>
