@@ -30,7 +30,7 @@ import { componentPageNumber } from '../routes/state.svelte.js';
 `;
 </script>
 
-<section in:fade={{ duration: 300 }} class="mb-5 w-2/3">
+<section id="main" in:fade={{ duration: 280, delay: 320 }} out:fade={{ duration: 280 }}>
 	<div class="transition-container">
 		<div
 			in:fade={{ duration: 300, delay: 400 }}
@@ -57,10 +57,10 @@ import { componentPageNumber } from '../routes/state.svelte.js';
 </svelte:head>
 <HighlightSvelte language={javascript} {code} />
 
-<details class="absolute mt-3">
+<details class="absolute mt-4">
 	<summary>How did I create this code snippet (aka "code highlighting")?</summary>
 	With
-	<a href="https://www.npmjs.com/package/svelte-highlight"
+	<a class="mb-10" href="https://www.npmjs.com/package/svelte-highlight"
 		><span class="text-blue-500 underline">svelte-highlight, and the 'agate' styling package.</span
 		></a
 	>
