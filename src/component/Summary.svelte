@@ -42,8 +42,16 @@ import { componentPageNumber } from '../routes/state.svelte.js';
 				Well, I don't need help after all. It looks like I solved it through this project. This
 				video was released today that helped me solve it from the <strong>Svelte Mastery</strong> channel:
 			</p>
+			<p class="inline-block">
+				Here's the youtube video <a
+					href="https://www.youtube.com/watch?v=9MbjQJMwQsQ"
+					class="text-blue-400 underline"
+				>
+					link</a
+				>, the svelte-youtube-embed is so old that it works on my local host but not with Netlify
+				ugh.
+			</p>
 
-			<Youtube id="9MbjQJMwQsQ" altThumb={true} />
 			<details class="-mt-5 select-none">
 				<summary>How did I embed this video?</summary>
 				With
