@@ -20,7 +20,7 @@
 			<div
 				in:fade={{ duration: 300, delay: 400 }}
 				out:fade={{ duration: 300 }}
-				class="container flex h-auto w-[500px] flex-col gap-6 text-black"
+				class="container relative flex h-[480px] w-[500px] flex-col gap-6 text-black"
 			>
 				<p class="mt-0 text-left text-sm">Component.svelte</p>
 				<div class="text-md flex flex-col gap-4 text-left">
@@ -44,7 +44,7 @@
 				</div>
 				<button
 					onclick={() => pageIndex.update((v) => (v = 2))}
-					class="absolute bottom-48 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
+					class="absolute -bottom-20 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
 				>
 					Return to +page.svelte
 				</button>
@@ -55,7 +55,7 @@
 			<div
 				in:fade={{ duration: 300, delay: 400 }}
 				out:fade={{ duration: 300 }}
-				class="container flex h-auto w-[500px] flex-col gap-6 text-black"
+				class="container relative flex h-[480px] w-[500px] flex-col gap-6 text-black"
 			>
 				<p class="mt-0 text-left text-sm">Component.svelte</p>
 				<p>
@@ -71,7 +71,7 @@
 				</p>
 				<button
 					onclick={() => pageIndex.update((v) => (v = 4))}
-					class="absolute bottom-48 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
+					class="absolute -bottom-20 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
 				>
 					Summary
 				</button>

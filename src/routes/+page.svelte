@@ -23,7 +23,7 @@
 			<div
 				in:fade={{ duration: 300, delay: 400 }}
 				out:fade={{ duration: 300 }}
-				class="container flex h-full w-[500px] flex-col justify-start gap-6 text-black"
+				class="container relative flex h-[480px] w-[500px] flex-col justify-start gap-6 text-black"
 			>
 				<p class="mt-0 text-left text-sm">+page.svelte</p>
 				<div class="text-md flex flex-col gap-4 text-left">
@@ -56,7 +56,7 @@
 				</div>
 				<button
 					onclick={() => pageIndex.update((v) => (v = 1))}
-					class="absolute bottom-48 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
+					class="absolute -bottom-20 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
 				>
 					Go to component
 				</button>
@@ -69,7 +69,7 @@
 			<div
 				in:fade={{ duration: 300, delay: 300 }}
 				out:fade={{ duration: 300 }}
-				class="container flex h-auto w-[500px] flex-col gap-6 text-black"
+				class="container relative flex h-[480px] w-[500px] flex-col gap-6 text-black"
 			>
 				<p class="mt-0 text-left text-sm">+page.svelte</p>
 				<div class="text-md flex flex-col gap-4 text-left">
@@ -88,7 +88,7 @@
 				</div>
 				<button
 					onclick={() => pageIndex.update((v) => (v = 3))}
-					class="absolute bottom-48 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
+					class="absolute -bottom-20 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
 				>
 					Go to component
 				</button>
