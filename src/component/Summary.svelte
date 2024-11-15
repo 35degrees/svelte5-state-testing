@@ -1,5 +1,4 @@
 <script>
-	import Youtube from 'svelte-youtube-embed';
 	import { HighlightSvelte } from 'svelte-highlight';
 	import javascript from 'svelte-highlight/languages/javascript';
 	import github from 'svelte-highlight/styles/github';

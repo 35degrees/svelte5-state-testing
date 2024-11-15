@@ -12,8 +12,6 @@
 		pageIndexVal = value;
 	});
 
-	console.log(pageIndexVal);
-
 	onDestroy(unsubscribe);
 </script>
 
