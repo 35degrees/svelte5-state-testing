@@ -17,3 +17,13 @@ class ComponentPageNumber {
 }
 
 export const componentPageNumber = new ComponentPageNumber();
+
+class SubPageNumber {
+	subNumber = $state(50);
+
+	increment() {
+		this.subNumber++;
+	}
+}
+
+export const subPageNumber = new SubPageNumber();

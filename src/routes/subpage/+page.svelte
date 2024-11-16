@@ -1,6 +1,6 @@
 <script>
-	import { pageIndex } from '../routes/store.js';
-	import { componentPageNumber, mainPageNumber, subPageNumber } from '../routes/state.svelte.js';
+	import { pageIndex } from '../store.js';
+	import { componentPageNumber, subPageNumber, mainPageNumber } from '../state.svelte.js';
 	import { fade } from 'svelte/transition';
 	import { onDestroy } from 'svelte';
 	let pageIndexVal = $state();
@@ -15,84 +15,62 @@
 </script>
 
 <section id="main" in:fade={{ duration: 280, delay: 320 }} out:fade={{ duration: 280 }}>
-	{#if pageIndexVal === 1}
+	{#if pageIndexVal === 5}
 		<div class="transition-container">
 			<div
 				in:fade={{ duration: 300, delay: 400 }}
 				out:fade={{ duration: 300 }}
 				class="container relative flex h-[480px] w-[500px] flex-col gap-6 text-black"
 			>
-				<p class="mt-0 text-left text-sm">Component.svelte</p>
+				<p class="mt-0 text-left text-sm">/subpage/+page.svelte</p>
 				<div class="text-md flex flex-col gap-4 text-left">
 					<p>
-						You are now in the component. Click here to decrement a second number with the class <span
-							class="underline">ComponentPageNumber</span
-						>:
+						Welcome to the subpage! We navigated away from the main page and didn't link to the
+						component here so we can start with fresh state.
 					</p>
+					<p>Here's the button to increment the new SubPageNumber from 50 up to 75:</p>
 				</div>
 				<button
-					onclick={() => componentPageNumber.decrement()}
-					class="w-1/5 rounded-xl border-none bg-orange-400 px-5 py-2 text-3xl text-white"
+					onclick={() => subPageNumber.increment()}
+					class="w-1/5 rounded-xl border-none bg-green-400 px-5 py-2 text-3xl text-white"
 				>
-					{componentPageNumber.componentNumber}
+					{subPageNumber.subNumber}
 				</button>
 				<div class="text-md flex flex-col gap-4 text-left">
 					<p>
-						Remember this number and you'll return here. Please go to back to the main +page.svelte
-						to review the state changes:
+						Remember this number and you'll return here. Just for fun, here's the current state of
+						the <strong>mainPageNumber </strong> and the <strong> componentPageNumber</strong>:
 					</p>
 				</div>
+				<div class="flex flex-row items-center justify-start gap-6">
+					<button
+						class="w-1/5 rounded-xl border-none bg-blue-400 px-5 py-2 text-3xl text-white opacity-70"
+					>
+						{mainPageNumber.mainNumber}
+					</button>
+					<button
+						class="w-1/5 rounded-xl border-none bg-orange-400 px-5 py-2 text-3xl text-white opacity-70"
+					>
+						{componentPageNumber.componentNumber}
+					</button>
+				</div>
 				<button
-					onclick={() => pageIndex.update((v) => (v = 2))}
+					onclick={() => pageIndex.update((v) => (v = 6))}
 					class="absolute -bottom-20 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
-				>
-					Return to +page.svelte
+					><a href="/">Return to +page.svelte</a>
 				</button>
 			</div>
 		</div>
-	{:else if pageIndexVal === 3}
+	{:else if pageIndexVal === 7}
 		<div class="transition-container">
 			<div
 				in:fade={{ duration: 300, delay: 400 }}
 				out:fade={{ duration: 300 }}
 				class="container relative flex h-[480px] w-[500px] flex-col gap-6 text-black"
 			>
-				<p class="mt-0 text-left text-sm">Component.svelte</p>
-				<p>
-					Here's a look at the <span class="underline">ComponentPageNumber</span> after coming back:
-				</p>
-
-				<button
-					class="w-1/5 rounded-xl border-none bg-orange-400 px-5 py-2 text-3xl text-white opacity-70"
-				>
-					{componentPageNumber.componentNumber}
-				</button>
-				<p>
-					Nice, we were able to hold the state over a component change! But can we hold state after
-					changing the routing of a page?
-				</p>
-				<p>
-					Click below to return to the main +page.svelte to see if we can maintain state over page
-					changes?
-				</p>
-				<button
-					onclick={() => pageIndex.update((v) => (v = 4))}
-					class="absolute -bottom-20 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
-				>
-					Return to +page.svelte
-				</button>
-			</div>
-		</div>
-	{:else if pageIndexVal === 8}
-		<div class="transition-container">
-			<div
-				in:fade={{ duration: 300, delay: 400 }}
-				out:fade={{ duration: 300 }}
-				class="container relative flex h-[480px] w-[500px] flex-col gap-6 text-black"
-			>
-				<p class="mt-0 text-left text-sm">Component.svelte</p>
+				<p class="mt-0 text-left text-sm">/subpage/+page.svelte</p>
 				<div class="text-md flex flex-col gap-4 text-left">
-					<p>And finally, we are back at the component:</p>
+					<p>Another check from the subpage:</p>
 				</div>
 				<div class="flex flex-row items-center justify-start gap-6 opacity-70">
 					<button class="w-1/5 rounded-xl border-none bg-blue-400 px-5 py-2 text-3xl text-white">
@@ -110,12 +88,12 @@
 					</button>
 				</div>
 				<div class="text-md flex flex-col gap-4 text-left">
-					<p>All good?? Thought so, very exciting. Let's summarize.</p>
+					<p>And let's check these three states from the component once more:</p>
 				</div>
 				<button
-					onclick={() => pageIndex.update((v) => (v = 9))}
+					onclick={() => pageIndex.update((v) => (v = 8))}
 					class="absolute -bottom-20 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
-					><a href="/">Summary</a>
+					><a href="/"> View from the component</a>
 				</button>
 			</div>
 		</div>

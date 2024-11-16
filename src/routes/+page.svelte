@@ -1,5 +1,5 @@
 <script>
-	import { mainPageNumber } from './state.svelte.js';
+	import { mainPageNumber, componentPageNumber, subPageNumber } from './state.svelte.js';
 	import { fade } from 'svelte/transition';
 	import { pageIndex } from './store.js';
 	import Component from '../component/Component.svelte';
@@ -74,7 +74,7 @@
 					<p>You can see that the state was held onto on the main page:</p>
 				</div>
 				<button
-					class="w-1/5 select-none rounded-xl border-none bg-blue-400 px-5 py-2 text-3xl text-white"
+					class="w-1/5 select-none rounded-xl border-none bg-blue-400 px-5 py-2 text-3xl text-white opacity-70"
 				>
 					{mainPageNumber.mainNumber}
 				</button>
@@ -95,6 +95,94 @@
 	{:else if pageIndexVal === 3}
 		<Component />
 	{:else if pageIndexVal === 4}
+		<div class="transition-container">
+			<div
+				in:fade={{ duration: 300, delay: 400 }}
+				out:fade={{ duration: 300 }}
+				class="container relative flex h-[480px] w-[500px] flex-col justify-start gap-6 text-black"
+			>
+				<p class="mt-0 text-left text-sm">+page.svelte</p>
+				<div class="text-md flex flex-col gap-4 text-left">
+					<p>
+						We are back on the main +page.svelte to test out if state holds through page layout
+						changes.
+					</p>
+					<p>
+						Click here to increment the original <span class="underline">MainPageNumber</span> you set
+						at the beginning:
+					</p>
+				</div>
+				<button
+					onclick={() => mainPageNumber.increment()}
+					class="w-1/5 select-none rounded-xl border-none bg-blue-400 px-5 py-2 text-3xl text-white"
+				>
+					{mainPageNumber.mainNumber}
+				</button>
+				<div class="text-md flex flex-col gap-4 text-left">
+					<p>
+						And here's the component state you set earlier just to keep an eye on it through these
+						next steps (we won't change it here):
+					</p>
+					<button
+						class="w-1/5 rounded-xl border-none bg-orange-400 px-5 py-2 text-3xl text-white opacity-70"
+					>
+						{componentPageNumber.componentNumber}
+					</button>
+					<p>Remember these numbers and click the button below to route to the subpage.</p>
+				</div>
+				<button
+					onclick={() => pageIndex.update((v) => (v = 5))}
+					class="absolute -bottom-20 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
+					><a href="/subpage">Route to the subpage</a>
+				</button>
+			</div>
+		</div>
+	{:else if pageIndexVal === 6}
+		<div class="transition-container">
+			<div
+				in:fade={{ duration: 300, delay: 400 }}
+				out:fade={{ duration: 300 }}
+				class="container relative flex h-[480px] w-[500px] flex-col justify-start gap-6 text-black"
+			>
+				<p class="mt-0 text-left text-sm">+page.svelte</p>
+				<div class="text-md flex flex-col gap-4 text-left">
+					<p>
+						One more time, back on the main +page.svelte! Here are the results of the three states
+						we set:
+					</p>
+				</div>
+				<div class="flex flex-row items-center justify-start gap-6 opacity-70">
+					<button class="w-1/5 rounded-xl border-none bg-blue-400 px-5 py-2 text-3xl text-white">
+						{mainPageNumber.mainNumber}
+					</button>
+					<button
+						class="w-1/5 rounded-xl border-none bg-orange-400 px-5 py-2 text-3xl text-white opacity-70"
+					>
+						{componentPageNumber.componentNumber}
+					</button>
+					<button
+						class="w-1/5 rounded-xl border-none bg-green-400 px-5 py-2 text-3xl text-white opacity-70"
+					>
+						{subPageNumber.subNumber}
+					</button>
+				</div>
+				<div class="text-md flex flex-col gap-4 text-left">
+					<p>
+						How is looking? And one more check as we route again to the subpage, click the button
+						below.
+					</p>
+
+					<button
+						onclick={() => pageIndex.update((v) => (v = 7))}
+						class="absolute -bottom-20 w-1/2 rounded-xl border-none bg-slate-400 px-5 py-2 text-lg text-white"
+						><a href="/subpage">Route to the subpage</a>
+					</button>
+				</div>
+			</div>
+		</div>
+	{:else if pageIndexVal === 8}
+		<Component />
+	{:else if pageIndexVal === 9}
 		<Summary />
 	{/if}
 </section>
